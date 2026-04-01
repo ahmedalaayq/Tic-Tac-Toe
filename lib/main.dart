@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return LifeCycleManager(
           child: MaterialApp(
+            title: 'TicTac Toe',
             theme: ThemeData(fontFamily: 'Poppins'),
             debugShowCheckedModeBanner: false,
             home: const StartPage(),
