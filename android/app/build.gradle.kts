@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tic_tac_toe_game_game"
+    namespace = "com.example.tic_tac_toe"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,15 +21,13 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.tic_tac_toe_game_game"
+        applicationId = "com.example.tic_tac_toe"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        manifestPlaceholders["redirectSchemeName"] = "spotify-sdk"
-        manifestPlaceholders["redirectHostName"] = "auth"
     }
 
     buildTypes {
