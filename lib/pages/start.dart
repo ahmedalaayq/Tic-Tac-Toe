@@ -104,7 +104,7 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
             gradient: LinearGradient(colors: gradientColors),
             boxShadow: [
               BoxShadow(
-                color: gradientColors.first.withOpacity(0.4),
+                color: gradientColors.first.withValues(alpha: 0.4),
                 blurRadius: 20.r,
                 offset: Offset(0, 8.h),
               ),
@@ -137,7 +137,7 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
   Widget _floatingShape(double size, Color color, double top, double left) {
     return AnimatedBuilder(
       animation: _rotationAnimation,
-      builder: (_, __) {
+      builder: (_, _) {
         return Positioned(
           top: top,
           left: left,
@@ -149,7 +149,7 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
-                  colors: [color.withOpacity(0.3), Colors.transparent],
+                  colors: [color.withValues(alpha: 0.3), Colors.transparent],
                 ),
               ),
             ),
@@ -208,7 +208,7 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
                         ),
                         child: CircleAvatar(
                           radius: 60.r,
-                          backgroundColor: Colors.white.withOpacity(0.2),
+                          backgroundColor: Colors.white.withValues(alpha: 0.2),
                           child: Image.asset('images/logo2.png'),
                         ),
                       ),
@@ -294,7 +294,7 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
       margin: EdgeInsets.symmetric(horizontal: 24.w),
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.12),
+        color: Colors.white.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(MyTheme.radiusLarge),
       ),
       child: Column(
