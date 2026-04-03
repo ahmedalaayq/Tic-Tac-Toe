@@ -259,7 +259,8 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
                         Color(0xFFf5576c),
                       ],
                       onTap: () {
-                        soundService.playSpotify();
+                        // soundService.playSpotify();
+                        _showWorkingonSoundDialog(context);
                       },
                     ),
 
@@ -278,38 +279,48 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _infoCard(String title, String subtitle, {bool isTitle = false}) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 24.w),
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(MyTheme.radiusLarge),
-      ),
-      child: Column(
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: isTitle ? 16.sp : 18.sp,
-            ),
+  Future<dynamic> _showWorkingonSoundDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          title: Text('Warning '),
+          content: Column(
+            mainAxisSize: .min,
+            children: [
+              Text(
+                'you are working on this feature, maybe coming soon',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ],
           ),
-          SizedBox(height: 6.h),
-          Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: 13.sp,
-              fontWeight: .w600,
+          actions: [
+            OutlinedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
             ),
-          ),
-        ],
-      ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: MyTheme.blue),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                'Ok',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14.sp,
+                  fontWeight: .bold,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
+
 }
 
 Widget _buildCreditsCard() {
