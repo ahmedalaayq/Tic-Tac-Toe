@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         return LifeCycleManager(
           child: MaterialApp(
             title: 'TicTac Toe',
-            theme: ThemeData(fontFamily: 'Poppins'),
+            theme: ThemeData(fontFamily: 'Cairo'),
             debugShowCheckedModeBanner: false,
             home: const StartPage(),
           ),

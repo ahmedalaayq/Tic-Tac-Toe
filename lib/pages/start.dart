@@ -265,18 +265,7 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
 
                     const Spacer(),
 
-                    _infoCard(
-                      "أحمد عماد صادق",
-                      "شعبة حاسب • تصميم الألعاب التعليمية",
-                    ),
-
-                    SizedBox(height: 12.h),
-
-                    _infoCard(
-                      "تحت إشراف",
-                      "د/ دنيا عبدالحميد الدخاخني\nد/ دعاء هيكل",
-                      isTitle: true,
-                    ),
+                    _buildCreditsCard(),
 
                     SizedBox(height: 20.h),
                   ],
@@ -311,10 +300,142 @@ class _StartPageState extends State<StartPage> with TickerProviderStateMixin {
           Text(
             subtitle,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white70, fontSize: 13.sp),
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 13.sp,
+              fontWeight: .w600,
+            ),
           ),
         ],
       ),
     );
   }
+}
+
+Widget _buildCreditsCard() {
+  return Container(
+    margin: EdgeInsets.symmetric(horizontal: 24.w),
+    padding: EdgeInsets.all(18.w),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(MyTheme.radiusLarge),
+
+      gradient: LinearGradient(
+        colors: [
+          Colors.white.withValues(alpha: 0.15),
+          Colors.white.withValues(alpha: 0.05),
+        ],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ),
+
+      border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withValues(alpha: 0.2),
+          blurRadius: 25,
+          offset: const Offset(0, 10),
+        ),
+        BoxShadow(
+          color: Colors.white.withValues(alpha: 0.05),
+          blurRadius: 10,
+          spreadRadius: 1,
+        ),
+      ],
+    ),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            Container(
+              padding: EdgeInsets.all(2.w),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(colors: [MyTheme.blue, MyTheme.red]),
+              ),
+              child: CircleAvatar(
+                radius: 22.r,
+                backgroundColor: Colors.black,
+                backgroundImage: AssetImage('images/ahmed.jpg'),
+              ),
+            ),
+
+            SizedBox(width: 12.w),
+
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "أحمد عماد صادق",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 4.h),
+                  Text(
+                    "شعبة حاسب • تصميم الألعاب التعليمية",
+                    style: TextStyle(
+                      color: Colors.white.withValues(alpha: 0.7),
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+
+        SizedBox(height: 14.h),
+
+        Container(height: 1, color: Colors.white.withValues(alpha: 0.2)),
+
+        SizedBox(height: 12.h),
+
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.school_rounded, color: Colors.white, size: 16.sp),
+                SizedBox(width: 6.w),
+                Text(
+                  "تحت إشراف",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+
+            SizedBox(height: 8.h),
+
+            Text(
+              "د/ دنيا عبدالحميد الدخاخني",
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.85),
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+
+            SizedBox(height: 4.h),
+
+            Text(
+              "د/ دعاء هيكل",
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.85),
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
 }
